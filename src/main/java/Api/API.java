@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Properties;
 
 public abstract class API {
-    public static void setAirlines() {
+    public static void getAirlines() {
         Properties properties = new Properties();
         try (InputStream input = Main.class.getClassLoader().getResourceAsStream("config.properties")) {
             if (input != null) {
