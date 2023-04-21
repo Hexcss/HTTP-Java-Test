@@ -1,5 +1,8 @@
 package Utils.Printer;
 
+import DB.Airline;
+import DB.DataBase;
+
 import java.util.List;
 
 /**
@@ -9,16 +12,10 @@ public class DataPrinter {
 
     /**
      * Prints CSV data to the console.
-     *
-     * @param data A list of String arrays representing rows and fields in the CSV data.
      */
-    public void print(List<String[]> data) {
-        for (String[] row : data) {
-            System.out.print("Row: ");
-            for (String field : row) {
-                System.out.print(field + " | ");
-            }
-            System.out.println();
+    public void printAirlines() {
+        for (Airline airline : DataBase.airlines) {
+            System.out.println(airline);
         }
     }
 }
