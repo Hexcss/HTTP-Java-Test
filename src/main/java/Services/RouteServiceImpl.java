@@ -1,8 +1,8 @@
 package Services;
 
-import Records.Route;
-import Utils.Interfaces.Repositories.RouteRepository;
-import Utils.Interfaces.Services.RouteService;
+import Types.Records.Route;
+import Types.Interfaces.Repositories.RouteRepository;
+import Types.Interfaces.Services.RouteService;
 
 import java.util.List;
 

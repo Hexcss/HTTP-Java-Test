@@ -1,6 +1,6 @@
-package Utils.Interfaces.Services;
+package Types.Interfaces.Services;
 
-import Records.Airline;
+import Types.Records.Airline;
 
 import java.util.List;
 

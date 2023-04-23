@@ -1,7 +1,7 @@
 package Repositories;
 
-import Records.Airline;
-import Utils.Interfaces.Repositories.AirlineRepository;
+import Types.Records.Airline;
+import Types.Interfaces.Repositories.AirlineRepository;
 
 import java.util.*;
 

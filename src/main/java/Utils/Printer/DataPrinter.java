@@ -1,40 +1,33 @@
 package Utils.Printer;
 
-import Records.Airline;
-import Records.Airport;
-import Records.Route;
+import Types.Records.Airline;
+import Types.Records.Airport;
+import Types.Records.Route;
 
 import java.util.List;
 
 /**
- * Class responsible for printing CSV data.
+ * Class responsible for data.
  */
 public class DataPrinter {
 
-    /**
-     * Prints CSV data to the console.
-     */
     public void printAirlinesByCountry(List<Airline> airlines) {
-        for (Airline airline : airlines) {
-            System.out.println(airline);
-        }
+        printList(airlines);
     }
 
     public void printDestinationsByAirlineName(List<Airport> airports) {
-        for (Airport airport : airports) {
-            System.out.println(airport);
-        }
+        printList(airports);
     }
 
     public void printDestinationsByAirlineCode(List<Airport> airports) {
-        for (Airport airport : airports) {
-            System.out.println(airport);
-        }
+        printList(airports);
     }
 
     public void printRoutes(List<Route> routes) {
-        for (Route route : routes) {
-            System.out.println(route);
-        }
+        printList(routes);
+    }
+
+    private <T> void printList(List<T> items) {
+        items.forEach(System.out::println);
     }
 }

@@ -1,7 +1,7 @@
 package Repositories;
 
-import Records.Route;
-import Utils.Interfaces.Repositories.RouteRepository;
+import Types.Records.Route;
+import Types.Interfaces.Repositories.RouteRepository;
 
 import java.util.ArrayList;
 import java.util.Collections;

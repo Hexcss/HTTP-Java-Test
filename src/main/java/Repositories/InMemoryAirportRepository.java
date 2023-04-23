@@ -1,7 +1,7 @@
 package Repositories;
 
-import Records.Airport;
-import Utils.Interfaces.Repositories.AirportRepository;
+import Types.Records.Airport;
+import Types.Interfaces.Repositories.AirportRepository;
 
 import java.util.*;
 
@@ -11,7 +11,13 @@ public class InMemoryAirportRepository implements AirportRepository {
 
     @Override
     public void save(List<Airport> airportsList) {
-        // You can also move the setAirports method's logic from the original class to here
+        for (Airport airport : airportsList) {
+            String airlineName = airport.name();
+            int airlineCode = airport.id();
+
+            destinationsByAirlineName.computeIfAbsent(airlineName, k -> new ArrayList<>()).add(airport);
+            destinationsByAirlineCode.computeIfAbsent(airlineCode, k -> new ArrayList<>()).add(airport);
+        }
     }
 
     @Override

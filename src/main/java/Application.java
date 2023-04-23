@@ -1,19 +1,19 @@
 import Api.AirlinesAPI;
 import Api.AirportsAPI;
 import Api.RoutesAPI;
-import DataProcessor.DataProcessor;
-import Records.Airline;
-import Records.Airport;
-import Records.Route;
+import Utils.DataProcessor.DataProcessor;
+import Types.Records.Airline;
+import Types.Records.Airport;
+import Types.Records.Route;
 import Repositories.InMemoryAirlineRepository;
 import Repositories.InMemoryAirportRepository;
 import Repositories.InMemoryRouteRepository;
 import Services.AirlineServiceImpl;
 import Services.AirportServiceImpl;
 import Services.RouteServiceImpl;
-import Utils.Interfaces.Services.AirlineService;
-import Utils.Interfaces.Services.AirportService;
-import Utils.Interfaces.Services.RouteService;
+import Types.Interfaces.Services.AirlineService;
+import Types.Interfaces.Services.AirportService;
+import Types.Interfaces.Services.RouteService;
 import Utils.Printer.DataPrinter;
 
 import java.io.IOException;
@@ -52,8 +52,8 @@ public class Application {
 
         //Print the results
         DataPrinter dataPrinter = new DataPrinter();
-        dataPrinter.printAirlinesByCountry(airlineService.getAirlinesByCountry("United States"));
-        //dataPrinter.printDestinationsByAirlineName(airportService.getDestinationsByAirlineName("British Airways"));
+        //dataPrinter.printAirlinesByCountry(airlineService.getAirlinesByCountry("United States"));
+        dataPrinter.printDestinationsByAirlineName(airportService.getDestinationsByAirlineName("British Airways"));
         //dataPrinter.printDestinationsByAirlineCode(airportService.getDestinationsByAirlineCode(324));
     }
 }

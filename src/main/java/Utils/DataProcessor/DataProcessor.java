@@ -1,8 +1,8 @@
-package DataProcessor;
+package Utils.DataProcessor;
 
-import Records.Airline;
-import Records.Airport;
-import Records.Route;
+import Types.Records.Airline;
+import Types.Records.Airport;
+import Types.Records.Route;
 
 import java.util.ArrayList;
 import java.util.List;

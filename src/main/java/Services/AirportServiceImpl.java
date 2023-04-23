@@ -1,8 +1,8 @@
 package Services;
 
-import Records.Airport;
-import Utils.Interfaces.Repositories.AirportRepository;
-import Utils.Interfaces.Services.AirportService;
+import Types.Records.Airport;
+import Types.Interfaces.Repositories.AirportRepository;
+import Types.Interfaces.Services.AirportService;
 
 import java.util.List;
 

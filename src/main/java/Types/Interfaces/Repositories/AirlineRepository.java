@@ -1,6 +1,6 @@
-package Utils.Interfaces.Repositories;
+package Types.Interfaces.Repositories;
 
-import Records.Airline;
+import Types.Records.Airline;
 
 import java.util.List;
 

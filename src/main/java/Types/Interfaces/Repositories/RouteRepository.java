@@ -1,6 +1,6 @@
-package Utils.Interfaces.Repositories;
+package Types.Interfaces.Repositories;
 
-import Records.Route;
+import Types.Records.Route;
 
 import java.util.List;
 
