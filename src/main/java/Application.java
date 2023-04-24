@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class Application {
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException {
         // Start the loader animation
         Loader loader = new Loader();
         Thread loaderThread = new Thread(loader);
@@ -64,7 +64,7 @@ public class Application {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("\rFetching data... done.\033[0m");
+        System.out.println("\rPreparing flight data... done.\033[0m");
         ConsoleGUI consoleGUI = new ConsoleGUI(airlineService, airportService, routeService);
         consoleGUI.run();
     }

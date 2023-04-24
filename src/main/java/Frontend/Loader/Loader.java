@@ -17,7 +17,7 @@ public class Loader implements Runnable {
         int i = 0;
         String color = "\033[1;34m"; // Set the color to blue
         while (loading) {
-            printInColor("\rFetching data... " + spinner[i % spinner.length], color);
+            printInColor("\rPreparing flight data... " + spinner[i % spinner.length], color);
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {

@@ -21,5 +21,8 @@ public class WelcomeAnimation implements Runnable {
                 }
             }
         }
+
+        // Print the message with the last color after the animation is over
+        System.out.println(colors[colors.length - 1] + message + "\033[0m");
     }
 }
