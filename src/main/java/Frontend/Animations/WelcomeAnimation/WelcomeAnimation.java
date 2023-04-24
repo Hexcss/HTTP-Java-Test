@@ -1,4 +1,4 @@
-package Frontend.WelcomeAnimation;
+package Frontend.Animations.WelcomeAnimation;
 
 public class WelcomeAnimation implements Runnable {
     @Override

@@ -1,18 +1,18 @@
-import Backend.Api.AirlinesAPI;
-import Backend.Api.AirportsAPI;
-import Backend.Api.RoutesAPI;
+import Backend.APIs.Airlines.AirlinesAPI;
+import Backend.APIs.Airport.AirportsAPI;
+import Backend.APIs.Routes.RoutesAPI;
 import Backend.Utils.DataProcessor.DataProcessor;
 import Frontend.GUI.ConsoleGUI;
-import Frontend.Loader.Loader;
+import Frontend.Animations.Loader.Loader;
 import Utils.Types.Records.Airline;
 import Utils.Types.Records.Airport;
 import Utils.Types.Records.Route;
-import Backend.Repositories.InMemoryAirlineRepository;
-import Backend.Repositories.InMemoryAirportRepository;
-import Backend.Repositories.InMemoryRouteRepository;
-import Backend.Services.AirlineServiceImpl;
-import Backend.Services.AirportServiceImpl;
-import Backend.Services.RouteServiceImpl;
+import Backend.Repositories.AirlineRepository.InMemoryAirlineRepository;
+import Backend.Repositories.AirportRepository.InMemoryAirportRepository;
+import Backend.Repositories.RouteRepository.InMemoryRouteRepository;
+import Backend.Services.AirlineService.AirlineServiceImpl;
+import Backend.Services.AirportService.AirportServiceImpl;
+import Backend.Services.RouteService.RouteServiceImpl;
 import Utils.Types.Interfaces.Services.AirlineService;
 import Utils.Types.Interfaces.Services.AirportService;
 import Utils.Types.Interfaces.Services.RouteService;
@@ -46,7 +46,6 @@ public class Application {
         InMemoryAirlineRepository airlineRepository = new InMemoryAirlineRepository();
         InMemoryRouteRepository routeRepository = new InMemoryRouteRepository();
         InMemoryAirportRepository airportRepository = new InMemoryAirportRepository(airlineRepository, routeRepository);
-
 
         // Save the data using the service layer
         AirlineService airlineService = new AirlineServiceImpl(airlineRepository);

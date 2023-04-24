@@ -1,4 +1,4 @@
-package Backend.Api;
+package Backend.APIs.Airlines;
 
 import Backend.Utils.Downloader.DatFileDownloader;
 import Backend.Utils.Parser.CSVParser;

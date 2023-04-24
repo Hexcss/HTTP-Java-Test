@@ -1,4 +1,4 @@
-package Frontend.GoodbyeAnimation;
+package Frontend.Animations.GoodbyeAnimation;
 
 public class GoodbyeAnimation implements Runnable {
 

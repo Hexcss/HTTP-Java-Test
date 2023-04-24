@@ -1,4 +1,4 @@
-package Backend.Services;
+package Backend.Services.AirlineService;
 
 import Utils.Types.Records.Airline;
 import Utils.Types.Interfaces.Repositories.AirlineRepository;

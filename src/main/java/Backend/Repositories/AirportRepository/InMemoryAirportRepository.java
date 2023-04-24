@@ -1,4 +1,4 @@
-package Backend.Repositories;
+package Backend.Repositories.AirportRepository;
 
 import Utils.Types.Interfaces.Repositories.AirlineRepository;
 import Utils.Types.Interfaces.Repositories.RouteRepository;

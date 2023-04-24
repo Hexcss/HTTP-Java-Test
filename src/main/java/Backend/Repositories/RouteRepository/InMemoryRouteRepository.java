@@ -1,4 +1,4 @@
-package Backend.Repositories;
+package Backend.Repositories.RouteRepository;
 
 import Utils.Types.Records.Route;
 import Utils.Types.Interfaces.Repositories.RouteRepository;

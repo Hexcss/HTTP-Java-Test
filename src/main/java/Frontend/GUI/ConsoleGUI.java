@@ -1,7 +1,7 @@
 package Frontend.GUI;
 
-import Frontend.GoodbyeAnimation.GoodbyeAnimation;
-import Frontend.WelcomeAnimation.WelcomeAnimation;
+import Frontend.Animations.GoodbyeAnimation.GoodbyeAnimation;
+import Frontend.Animations.WelcomeAnimation.WelcomeAnimation;
 import Utils.Types.Interfaces.Services.AirlineService;
 import Utils.Types.Interfaces.Services.AirportService;
 import Utils.Types.Interfaces.Services.RouteService;

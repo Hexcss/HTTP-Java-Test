@@ -1,0 +1,41 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+entity Airline << record >>
+interface AirlineRepository << interface >>
+interface AirlineService << interface >>
+class AirlineServiceImpl
+class AirlinesAPI
+entity Airport << record >>
+interface AirportRepository << interface >>
+interface AirportService << interface >>
+class AirportServiceImpl
+class AirportsAPI
+class Application
+class CSVParser
+class ConsoleGUI
+class DatFileDownloader
+class DataPrinter
+class DataProcessor
+class GoodbyeAnimation
+class InMemoryAirlineRepository
+class InMemoryAirportRepository
+class InMemoryRouteRepository
+class Loader
+entity Route << record >>
+interface RouteRepository << interface >>
+interface RouteService << interface >>
+class RouteServiceImpl
+class RoutesAPI
+class WelcomeAnimation
+
+AirlineServiceImpl         -[#008200,dashed]-^  AirlineService            
+AirportServiceImpl         -[#008200,dashed]-^  AirportService            
+InMemoryAirlineRepository  -[#008200,dashed]-^  AirlineRepository         
+InMemoryAirportRepository  -[#008200,dashed]-^  AirportRepository         
+InMemoryRouteRepository    -[#008200,dashed]-^  RouteRepository           
+RouteServiceImpl           -[#008200,dashed]-^  RouteService              
+@enduml

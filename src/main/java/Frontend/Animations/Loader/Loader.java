@@ -1,4 +1,4 @@
-package Frontend.Loader;
+package Frontend.Animations.Loader;
 
 public class Loader implements Runnable {
     private boolean loading = true;
