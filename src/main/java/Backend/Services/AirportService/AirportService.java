@@ -2,14 +2,13 @@ package Backend.Services.AirportService;
 
 import Utils.Types.Records.Airport;
 import Utils.Types.Interfaces.Repositories.AirportRepository;
-import Utils.Types.Interfaces.Services.AirportService;
 
 import java.util.List;
 
-public class AirportServiceImpl implements AirportService {
+public class AirportService implements Utils.Types.Interfaces.Services.AirportService {
     private AirportRepository airportRepository;
 
-    public AirportServiceImpl(AirportRepository airportRepository) {
+    public AirportService(AirportRepository airportRepository) {
         this.airportRepository = airportRepository;
     }
 

@@ -2,14 +2,13 @@ package Backend.Services.RouteService;
 
 import Utils.Types.Records.Route;
 import Utils.Types.Interfaces.Repositories.RouteRepository;
-import Utils.Types.Interfaces.Services.RouteService;
 
 import java.util.List;
 
-public class RouteServiceImpl implements RouteService {
+public class RouteService implements Utils.Types.Interfaces.Services.RouteService {
     private RouteRepository routeRepository;
 
-    public RouteServiceImpl(RouteRepository routeRepository) {
+    public RouteService(RouteRepository routeRepository) {
         this.routeRepository = routeRepository;
     }
 

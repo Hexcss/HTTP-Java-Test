@@ -10,12 +10,9 @@ import Utils.Types.Records.Route;
 import Backend.Repositories.AirlineRepository.InMemoryAirlineRepository;
 import Backend.Repositories.AirportRepository.InMemoryAirportRepository;
 import Backend.Repositories.RouteRepository.InMemoryRouteRepository;
-import Backend.Services.AirlineService.AirlineServiceImpl;
-import Backend.Services.AirportService.AirportServiceImpl;
-import Backend.Services.RouteService.RouteServiceImpl;
-import Utils.Types.Interfaces.Services.AirlineService;
-import Utils.Types.Interfaces.Services.AirportService;
-import Utils.Types.Interfaces.Services.RouteService;
+import Backend.Services.AirlineService.AirlineService;
+import Backend.Services.AirportService.AirportService;
+import Backend.Services.RouteService.RouteService;
 
 import java.io.IOException;
 import java.util.List;
@@ -48,9 +45,9 @@ public class Application {
         InMemoryAirportRepository airportRepository = new InMemoryAirportRepository(airlineRepository, routeRepository);
 
         // Save the data using the service layer
-        AirlineService airlineService = new AirlineServiceImpl(airlineRepository);
-        AirportService airportService = new AirportServiceImpl(airportRepository);
-        RouteService routeService = new RouteServiceImpl(routeRepository);
+        Utils.Types.Interfaces.Services.AirlineService airlineService = new AirlineService(airlineRepository);
+        Utils.Types.Interfaces.Services.AirportService airportService = new AirportService(airportRepository);
+        Utils.Types.Interfaces.Services.RouteService routeService = new RouteService(routeRepository);
 
         airlineService.saveAirlines(airlines);
         airportService.saveAirports(airports);

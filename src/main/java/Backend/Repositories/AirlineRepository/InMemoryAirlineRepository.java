@@ -37,7 +37,10 @@ public class InMemoryAirlineRepository implements AirlineRepository {
     public int findIdByName(String name) {
         for (List<Airline> airlines : airlinesByCountry.values()) {
             for (Airline airline : airlines) {
+                System.out.println(":" + airline.name() + ":");
+                System.out.println(":" + name + ":");
                 if (airline.name().equals(name)) {
+
                     return airline.id();
                 }
             }
