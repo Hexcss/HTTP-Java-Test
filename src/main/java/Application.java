@@ -1,26 +1,32 @@
-import Api.AirlinesAPI;
-import Api.AirportsAPI;
-import Api.RoutesAPI;
-import Utils.DataProcessor.DataProcessor;
-import Types.Records.Airline;
-import Types.Records.Airport;
-import Types.Records.Route;
-import Repositories.InMemoryAirlineRepository;
-import Repositories.InMemoryAirportRepository;
-import Repositories.InMemoryRouteRepository;
-import Services.AirlineServiceImpl;
-import Services.AirportServiceImpl;
-import Services.RouteServiceImpl;
-import Types.Interfaces.Services.AirlineService;
-import Types.Interfaces.Services.AirportService;
-import Types.Interfaces.Services.RouteService;
-import Utils.Printer.DataPrinter;
+import Backend.Api.AirlinesAPI;
+import Backend.Api.AirportsAPI;
+import Backend.Api.RoutesAPI;
+import Backend.Utils.DataProcessor.DataProcessor;
+import Frontend.GUI.ConsoleGUI;
+import Frontend.Loader.Loader;
+import Utils.Types.Records.Airline;
+import Utils.Types.Records.Airport;
+import Utils.Types.Records.Route;
+import Backend.Repositories.InMemoryAirlineRepository;
+import Backend.Repositories.InMemoryAirportRepository;
+import Backend.Repositories.InMemoryRouteRepository;
+import Backend.Services.AirlineServiceImpl;
+import Backend.Services.AirportServiceImpl;
+import Backend.Services.RouteServiceImpl;
+import Utils.Types.Interfaces.Services.AirlineService;
+import Utils.Types.Interfaces.Services.AirportService;
+import Utils.Types.Interfaces.Services.RouteService;
 
 import java.io.IOException;
 import java.util.List;
 
 public class Application {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
+        // Start the loader animation
+        Loader loader = new Loader();
+        Thread loaderThread = new Thread(loader);
+        loaderThread.start();
+
         // Create API instances
         AirlinesAPI airlinesAPI = new AirlinesAPI("config.properties");
         AirportsAPI airportsAPI = new AirportsAPI("config.properties");
@@ -38,8 +44,9 @@ public class Application {
 
         // Initialize InMemory repositories
         InMemoryAirlineRepository airlineRepository = new InMemoryAirlineRepository();
-        InMemoryAirportRepository airportRepository = new InMemoryAirportRepository();
         InMemoryRouteRepository routeRepository = new InMemoryRouteRepository();
+        InMemoryAirportRepository airportRepository = new InMemoryAirportRepository(airlineRepository, routeRepository);
+
 
         // Save the data using the service layer
         AirlineService airlineService = new AirlineServiceImpl(airlineRepository);
@@ -50,11 +57,16 @@ public class Application {
         airportService.saveAirports(airports);
         routeService.saveRoutes(routes);
 
-        //Print the results
-        DataPrinter dataPrinter = new DataPrinter();
-        //dataPrinter.printAirlinesByCountry(airlineService.getAirlinesByCountry("United States"));
-        dataPrinter.printDestinationsByAirlineName(airportService.getDestinationsByAirlineName("British Airways"));
-        //dataPrinter.printDestinationsByAirlineCode(airportService.getDestinationsByAirlineCode(324));
+        // Stop the loader animation and start the GUI
+        loader.stopLoading();
+        try {
+            loaderThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("\rFetching data... done.\033[0m");
+        ConsoleGUI consoleGUI = new ConsoleGUI(airlineService, airportService, routeService);
+        consoleGUI.run();
     }
 }
 
