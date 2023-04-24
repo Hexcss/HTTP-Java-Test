@@ -41,15 +41,6 @@ public class ConsoleGUI {
     private int displayMenu(Scanner scanner) {
         clearConsole();
 
-        WelcomeAnimation welcomeAnimation = new WelcomeAnimation();
-        Thread welcomeThread = new Thread(welcomeAnimation);
-        welcomeThread.start();
-        try {
-            welcomeThread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         printSeparator();
         System.out.println("Please select an option:");
         printInColor("1. Show airlines by country", "\033[1;33m");
@@ -99,6 +90,16 @@ public class ConsoleGUI {
         printSeparator();
     }
 
+    private void welcome() {
+        WelcomeAnimation welcomeAnimation = new WelcomeAnimation();
+        Thread welcomeThread = new Thread(welcomeAnimation);
+        welcomeThread.start();
+        try {
+            welcomeThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
     private void exit() {
         GoodbyeAnimation goodbyeAnimation = new GoodbyeAnimation();
         Thread goodbyeThread = new Thread(goodbyeAnimation);
@@ -113,6 +114,8 @@ public class ConsoleGUI {
 
     public void run() {
         Scanner scanner = new Scanner(System.in);
+
+        welcome();
 
         while (true) {
             int option = displayMenu(scanner);
