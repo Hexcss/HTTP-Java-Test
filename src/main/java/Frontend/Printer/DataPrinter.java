@@ -28,6 +28,10 @@ public class DataPrinter {
     }
 
     private <T> void printList(List<T> items) {
+        if (items.isEmpty()) {
+            System.out.println("No results found.");
+            return;
+        }
         items.forEach(System.out::println);
     }
 }
