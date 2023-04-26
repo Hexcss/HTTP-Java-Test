@@ -1,7 +1,7 @@
 package Frontend.GUI;
 
-import Frontend.GoodbyeAnimation.GoodbyeAnimation;
-import Frontend.WelcomeAnimation.WelcomeAnimation;
+import Frontend.Animations.GoodbyeAnimation.GoodbyeAnimation;
+import Frontend.Animations.WelcomeAnimation.WelcomeAnimation;
 import Utils.Types.Interfaces.Services.AirlineService;
 import Utils.Types.Interfaces.Services.AirportService;
 import Utils.Types.Interfaces.Services.RouteService;
@@ -40,15 +40,6 @@ public class ConsoleGUI {
 
     private int displayMenu(Scanner scanner) {
         clearConsole();
-
-        WelcomeAnimation welcomeAnimation = new WelcomeAnimation();
-        Thread welcomeThread = new Thread(welcomeAnimation);
-        welcomeThread.start();
-        try {
-            welcomeThread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
         printSeparator();
         System.out.println("Please select an option:");
@@ -99,6 +90,16 @@ public class ConsoleGUI {
         printSeparator();
     }
 
+    private void welcome() {
+        WelcomeAnimation welcomeAnimation = new WelcomeAnimation();
+        Thread welcomeThread = new Thread(welcomeAnimation);
+        welcomeThread.start();
+        try {
+            welcomeThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
     private void exit() {
         GoodbyeAnimation goodbyeAnimation = new GoodbyeAnimation();
         Thread goodbyeThread = new Thread(goodbyeAnimation);
@@ -113,6 +114,8 @@ public class ConsoleGUI {
 
     public void run() {
         Scanner scanner = new Scanner(System.in);
+
+        welcome();
 
         while (true) {
             int option = displayMenu(scanner);

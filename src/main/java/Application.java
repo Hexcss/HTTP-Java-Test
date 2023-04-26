@@ -1,21 +1,18 @@
-import Backend.Api.AirlinesAPI;
-import Backend.Api.AirportsAPI;
-import Backend.Api.RoutesAPI;
+import Backend.APIs.Airlines.AirlinesAPI;
+import Backend.APIs.Airport.AirportsAPI;
+import Backend.APIs.Routes.RoutesAPI;
 import Backend.Utils.DataProcessor.DataProcessor;
 import Frontend.GUI.ConsoleGUI;
-import Frontend.Loader.Loader;
+import Frontend.Animations.Loader.Loader;
 import Utils.Types.Records.Airline;
 import Utils.Types.Records.Airport;
 import Utils.Types.Records.Route;
-import Backend.Repositories.InMemoryAirlineRepository;
-import Backend.Repositories.InMemoryAirportRepository;
-import Backend.Repositories.InMemoryRouteRepository;
-import Backend.Services.AirlineServiceImpl;
-import Backend.Services.AirportServiceImpl;
-import Backend.Services.RouteServiceImpl;
-import Utils.Types.Interfaces.Services.AirlineService;
-import Utils.Types.Interfaces.Services.AirportService;
-import Utils.Types.Interfaces.Services.RouteService;
+import Backend.Repositories.AirlineRepository.InMemoryAirlineRepository;
+import Backend.Repositories.AirportRepository.InMemoryAirportRepository;
+import Backend.Repositories.RouteRepository.InMemoryRouteRepository;
+import Backend.Services.AirlineService.AirlineService;
+import Backend.Services.AirportService.AirportService;
+import Backend.Services.RouteService.RouteService;
 
 import java.io.IOException;
 import java.util.List;
@@ -47,11 +44,10 @@ public class Application {
         InMemoryRouteRepository routeRepository = new InMemoryRouteRepository();
         InMemoryAirportRepository airportRepository = new InMemoryAirportRepository(airlineRepository, routeRepository);
 
-
         // Save the data using the service layer
-        AirlineService airlineService = new AirlineServiceImpl(airlineRepository);
-        AirportService airportService = new AirportServiceImpl(airportRepository);
-        RouteService routeService = new RouteServiceImpl(routeRepository);
+        Utils.Types.Interfaces.Services.AirlineService airlineService = new AirlineService(airlineRepository);
+        Utils.Types.Interfaces.Services.AirportService airportService = new AirportService(airportRepository);
+        Utils.Types.Interfaces.Services.RouteService routeService = new RouteService(routeRepository);
 
         airlineService.saveAirlines(airlines);
         airportService.saveAirports(airports);
